@@ -20,7 +20,7 @@ Built with **YOLOv8**, **Streamlit**, and **Python**, featuring a modern neon-da
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/besttro/MRI_Brain_Tumor_detection.git
-cd your-repo
+cd MRI_Brain_Tumor_detection
 ```
 
 ### 2️⃣ Create & activate virtual environment
