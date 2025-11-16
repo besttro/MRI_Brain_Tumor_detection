@@ -23,7 +23,7 @@ git clone https://github.com/besttro/MRI_Brain_Tumor_detection.git
 cd MRI_Brain_Tumor_detection
 ```
 
-### 2️⃣ Create & activate virtual environment
+### 2️⃣ Create and activate virtual environment
 
 **Windows**
 ```bash
@@ -37,26 +37,25 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3️⃣ Install dependencies
+### 3️⃣ Install required packages  
+(Extracted directly from the project code)
+
 ```bash
-pip install -r requirements.txt
+pip install streamlit ultralytics pillow pandas
 ```
 
-If you don’t have a `requirements.txt` file:
-```bash
-pip freeze > requirements.txt
-```
+*Note:*  
+`opencv-python` will be installed automatically by ultralytics when needed.
 
 ---
 
 ## ▶️ Run the Application
-Make sure your venv is active, then run:
 
 ```bash
 streamlit run app.py
 ```
 
-Open in your browser:
+Then open:
 
 ```
 http://localhost:8501
@@ -65,18 +64,19 @@ http://localhost:8501
 ---
 
 ## 📁 Project Structure
+
 ```
 📦 project/
  ┣ 📂 YOLOv8_Results/
  │   ┗ 📂 mri_tumor/
  │        ┗ 📂 weights/
- │             ┗ best.pt
- ┣ app.py
- ┣ requirements.txt
+ │             ┗ best.pt       # Your YOLOv8 trained model
+ ┣ app.py                      # Main Streamlit UI + YOLO code
  ┗ README.md
 ```
 
-Ensure the YOLO model path is correct:
+Ensure the model path in `app.py` matches:
+
 ```python
 MODEL_PATH = 'YOLOv8_Results/mri_tumor/weights/best.pt'
 ```
@@ -84,23 +84,29 @@ MODEL_PATH = 'YOLOv8_Results/mri_tumor/weights/best.pt'
 ---
 
 ## 🧠 How It Works
-1. User uploads an MRI scan  
-2. Streamlit loads the image and stores it temporarily  
-3. YOLOv8 performs inference  
-4. The result image with bounding boxes is returned  
-5. Confidence scores + class names + bounding boxes displayed  
-6. Data table of detections generated using Pandas  
+
+1. User uploads an MRI image  
+2. Streamlit loads and stores it temporarily  
+3. YOLOv8 performs tumor detection  
+4. Bounding boxes + confidence scores are drawn  
+5. A detailed detection table is generated  
+6. Custom CSS provides a neon-dark interface  
 
 ---
 
-## 🔧 Requirements
-Core dependencies used in this project:
+## 🔧 Dependencies Used in This Project  
+(Directly from code in `app.py`)
 
 ```
-ultralytics
 streamlit
+ultralytics
 pillow
 pandas
+```
+
+Optional (auto-installed by ultralytics):
+
+```
 opencv-python
 numpy
 ```
@@ -108,10 +114,11 @@ numpy
 ---
 
 ## 📸 Tech Stack
-- Python 3.9+
-- Streamlit
-- Ultralytics YOLOv8
-- Pillow / OpenCV
-- Pandas
+
+- Python 3.9+  
+- Streamlit  
+- Ultralytics YOLOv8  
+- Pillow  
+- Pandas  
 
 ---
